@@ -1,0 +1,82 @@
+.card {
+    z-index: 1;
+    border: 0px solid rgba(0,0,0,.125);
+}
+.card-img{
+    border-radius: 0;
+}
+.card-footer {
+    text-align: center;
+}
+.card-title{
+    font-family: Eurostile Extd,Source Sans Pro,sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    color: #fc6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+}
+.first-title{
+    font-size: 60px;
+}
+.sec-title{
+    margin-bottom: 20px;
+}
+
+.divider{
+    width: 80px;
+    height: 3px;
+    min-height: 3px;
+    background-color: rgb(204 150 41);
+    border-radius: 1px;
+}
+.button {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "Radiance","Noto Sans",sans-serif;
+    border: 3px solid #ffffff50;
+    padding: 15px 25px;
+    margin: 10px 30px;
+    transition-duration: .2s;
+    background-color: transparent;
+}
+.button:hover {
+    background-color: transparent;
+    border-color: aqua;
+    transform: translateY(-3px);
+}
+.header{
+    margin: 40px auto;
+    padding: 50px 150px;
+}
+.company-logo {
+    width: 200px;
+    height: 60px;
+    background-image: url(/public/assets/images/arts/company-logo.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.game-logo {
+    width: 200px;
+    height: 60px;
+    background-image: url(/public/assets/images/arts/simple-logo.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.card-img-overlay {
+    padding: 0;
+}
+.footer{
+    background-color: black;
+    color: #777;
+    height: 208px;
+    padding-top: 50px;
+}
+.col{
+    margin-left: 17%;
+}
