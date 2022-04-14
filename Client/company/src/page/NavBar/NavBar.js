@@ -5,7 +5,7 @@ import './NavBar.css'
 
 export class NavBar extends React.Component{
     render(){
-        return <Navbar className="navigation" variant="dark"  expand="lg">
+        return <Navbar className="navigation" variant="dark" collapseOnSelect >
         <Container className="container">
             <Navbar.Brand className="logo" href="#home"/>
             <Nav className="link">
