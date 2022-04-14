@@ -1,0 +1,242 @@
+@font-face {
+    font-family: Play;
+    src: url(/public/assets/fonts/Play-Regular.ttf);
+    
+  }
+@font-face {
+    font-family: Play-b;
+    src: url(/public/assets/fonts/Play-Bold.ttf);
+}
+@font-face {
+    font-family: Orbitron;
+    src: url(/public/assets/fonts/Orbitron-Regular.ttf);
+    
+}
+@font-face {
+    font-family: Orbitron-b;
+    src: url(/public/assets/fonts/Orbitron-Bold.ttf);
+}
+@font-face {
+    font-family: Orbitron-bb;
+    src: url(/public/assets/fonts/Orbitron-ExtraBold.ttf);
+}
+
+.blog-group{
+    box-shadow: 1px 0px 185px 100px black inset, 0px 0px 35px 30px black;
+}
+.blog-card{
+    background-color: #333;
+    background-position: top;
+    border-bottom: 2px solid #555;
+    box-shadow: 0px 0px 10px #000;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.blog-body{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+}
+.blog-body:hover{
+    background: #0000007a;
+}
+.blog-body:hover> .col .row .blog-title{
+    transform: translateY(-90px);
+}
+.blog-body:hover> .col .row .blog-text{
+    opacity: 1;
+    transform: translateY(-85px);
+}
+.blog-frame.card-img-overlay {
+    box-shadow: inset 0 0 40px rgb(0 102 204 / 60%), inset 0 0 160px rgb(0 102 204 / 40%);
+}
+.blog-title{
+    transition: 0.5s;
+    text-shadow: 0px 0px 10px #000;
+    font-family: 'Play-b';
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 24px;
+    line-height: 115%;
+    color: #fff;
+}
+
+.blog-text{
+    height: 0;
+    font-size: 18px;
+    color: rgba(255,255,255,.7);
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-property: height,opacity,transform;
+    opacity: 0;
+}
+
+.slogan{
+    margin-left: 5%;
+    margin-top: 105px;
+    margin-bottom: 90px;
+    font-size: 60px;
+    line-height: 113%;
+    font-family: "Orbitron-bb";
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #ffffffee;
+    text-shadow: 0px 0px 20px #000;
+    width: 660px;
+    text-transform: uppercase;
+}
+.promote{
+    text-align: center;
+}
+.promote-intro {
+    transform: translateY(20%);
+    margin-bottom: 50%;
+}
+.promote-intro .top{
+    font-family: 'play-b';
+    font-size: 50px;
+    color: #E2DACE90;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+    margin: auto;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%), 0 8px 16px rgb(0 0 0 / 60%);
+}
+.promote-intro .bot{
+    font-size: 100px;
+    font-family: 'Orbitron-bb';
+    color: #e2dace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+    width: 820px;
+    margin: auto;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%), 0 8px 16px rgb(0 0 0 / 60%);
+}
+.promote-intro .divider{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 80px;
+    height: 3px;
+    min-height: 3px;
+    background-color: rgb(204 150 41);
+    border-radius: 1px;
+    margin: auto;
+}
+.promote-intro .info{
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%), 0 8px 16px rgb(0 0 0 / 60%);
+    color: #fff;
+    font-family: 'Play';
+    line-height: 1.36798;
+    font-size: 31px;
+    width: 840px;
+    margin: auto;
+}
+.reveal{
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1.25s all ease;
+}
+.reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+}
+.ads-intro {
+    text-transform: uppercase;
+}
+.ads-intro .top{
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%), 0 8px 16px rgb(0 0 0 / 60%);
+    /* color: #fff; */
+    color: #7aa3cc;
+    font-family: 'Orbitron-bb';
+    font-size: 20px;
+    line-height: 1.36798;
+}
+.ads-intro .bot{
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%), 0 8px 16px rgb(0 0 0 / 60%);
+    color: #fff;
+    font-family: 'Play-b';
+    line-height: 1.36798;
+    font-size: 40px;
+}
+.ads-intro .info{
+    color: #a3b8cc;
+    width: 800px;
+    margin: auto;
+    font-weight: 400;
+}
+.video-group{
+    box-shadow: 1px 0px 185px 100px black inset, 0px 0px 35px 30px black;
+    margin: 80px;
+}
+.video-card{
+    background-color: #333;
+    background-position: top;
+    border-bottom: 2px solid #555;
+    box-shadow: 0px 0px 10px #000;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.video-body{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    background: #0000002e;
+}
+.video-body:hover{
+    background: none;
+}
+
+.video-frame.card-img-overlay {
+    box-shadow: inset 0 0 40px rgb(0 102 204 / 60%), inset 0 0 160px rgb(0 102 204 / 40%);
+}
+.video-title{
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 10px #000;
+    font-family: 'Play-b';
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 24px;
+    line-height: 115%;
+    color: #fff;
+}
+
+.video-text{
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(255,255,255,.7);
+}
+.video-button{
+    background-image: url(/public/assets/images/arts/play-video-button.png);
+    background-size: contain;
+    border: 0;
+    display: block;
+    height: 80px;
+    margin: auto;
+    width: 80px;
+    transition: filter .2s,opacity .2s,transform .2s;
+    transform: translateY(-20px);
+    background-color: transparent;
+}
+
+.video-body:hover> .col .row .video-button{
+    transform: translateY(-22px);
+}
+.video-body .col {
+    margin-bottom: 30px;
+}
