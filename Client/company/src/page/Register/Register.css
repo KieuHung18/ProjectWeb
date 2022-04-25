@@ -2,7 +2,7 @@
 .register-body{
     background-image: linear-gradient(to left, rgba(255,0,0,0) 1%, #000000e8 76%);
 }
-.form-container{
+.register-form-container{
     font-size: 14px;
     color: wheat;
     padding: 7%;
@@ -39,6 +39,9 @@
     background-position: 25%;
     background-size: 330% 100%;
 
+}
+button.register-button.btn.btn-primary:active{
+    box-shadow: none;
 }
 
 .register-button:hover{

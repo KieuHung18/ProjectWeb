@@ -1,0 +1,29 @@
+.profile-container{
+    padding: 100px;
+    background-color: blue;
+}
+.profile-title{
+    text-transform: uppercase;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+}
+.profile-card.card {
+    background: transparent;
+}
+.profile-card-header{
+    text-transform: uppercase;
+    color: white;
+    background: blue;
+}
+.profile-card-header.card-header {
+    border-radius: 0;
+}
+.profile-card-body{
+    color: white;
+    background: blue;
+    
+}
+.profile-card-body.card-body{
+    border-radius: 0%;
+}

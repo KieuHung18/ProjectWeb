@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-4.0.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<context:component-scan base-package = "com.company" />
+	<!-- default-target-url="/success" -->
+	<sec:http >
+		<sec:csrf disabled="true"/>
+		<sec:form-login login-page="/denied"
+			login-processing-url="/authenticateUser" 
+			authentication-success-handler-ref="feedSuccessHandler"
+			authentication-failure-url="/denied" username-parameter="email"
+			password-parameter="password" />
+		
+		<sec:intercept-url pattern="/denied" access="permitAll" />
+		<sec:intercept-url pattern="/register" access="permitAll" />
+		<sec:intercept-url pattern="/protectedadmin" access="hasRole('ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<sec:session-management invalid-session-url="/denied" />
+		<sec:logout delete-cookies="JSESSIONID" logout-url="/logout" />
+	</sec:http>
+	<beans:bean id="feedSuccessHandler"
+     class="com.company.security.FeedSuccessHandler">
+    </beans:bean>
+	<sec:authentication-manager>
+		<authentication-provider ref="securityAuthenticationProvider" />
+	</sec:authentication-manager>
+	
+</beans:beans>
