@@ -132,7 +132,7 @@ export class HomePage extends React.Component{
                             <CardGroup className='video-group'>
                                 {videocard.map(
                                     (vc)=>(
-                                    <Card className='video-card'>
+                                    <Card className='video-card' >
                                         <Card.Img className='video-img' src={vc[0]}/>
                                         <Card.ImgOverlay className='video-frame'>
                                         <Card.Body className='video-body'>

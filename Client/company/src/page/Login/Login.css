@@ -1,0 +1,123 @@
+@font-face {
+    font-family: Play-b;
+    src: url(/public/assets/fonts/Play-Bold.ttf);
+}
+@font-face {
+    font-family: Orbitron-bb;
+    src: url(/public/assets/fonts/Orbitron-ExtraBold.ttf);
+}
+.login-container{
+    padding-top: 150px;
+    background-color: rgb(21 23 30);;
+    width: 100%;
+    height: 768px;
+    text-align: center;
+}
+.login-logo{
+    margin: 55px;
+    transform: scale(1.5);
+    color: white;
+    font-family: "Orbitron-bb";
+    text-transform: uppercase;
+}
+.login-form-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.login-input{
+    font-weight: 500;
+    background-color: #171920;
+    color: #ffffff;
+    height: 40px;
+    padding: 0 12px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+}
+.login-input::placeholder{
+    color:rgb(162 163 166);
+    font-weight: 500;
+}
+.login-input:hover{
+    border-color: rgba(255, 255, 255, 0.84);
+}
+.login-input:focus{
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.84);
+    background-color: #171920;
+    color: #ffffff;
+}
+.login-form-group:hover{
+    border-color: rgba(255, 255, 255, 0.84);
+}
+.login-form-container{
+    width: 415px;
+    margin: auto;
+}
+button.login-submit-button{
+    width: 100%;
+    font-family: sans-serif;
+    font-weight: 700;
+    border: 2px solid transparent;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+button.login-submit-button:hover{
+    color: #fff;
+    border-color: #47a6ff;
+}
+button.login-submit-button:focus{
+    color: #fff;
+    box-shadow: none;
+    border-color: #47a6ff;
+    
+}
+.login-brand.row {
+    width: 190px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.login-facebook{
+    color: white;
+    background: blue;
+    border: none;
+    width: 25px;
+    border-radius: 2px;
+    transform: scale(1.75);
+}
+.login-google{
+    color: black;
+    background: white;
+    border: none;
+    width: 25px;
+    border-radius: 2px;
+    transform: scale(1.75);
+}
+.login-twitter{
+    color: white;
+    background: deepskyblue;
+    border: none;
+    width: 25px;
+    border-radius: 2px;
+    transform: scale(1.75);
+}
+.login-divider{
+    background: rgb(162 163 166);
+    height: 1px;
+    align-self: center;
+}
+.login-alternative-title{
+    color:rgb(162 163 166);
+    font-weight: 500;
+}
+.login-aternative{
+    width: 415px;
+    margin: auto;
+}
+a.login-register-link {
+    font-weight: 700;
+    font-size: 17px;
+}
