@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,9 +7,10 @@ import {BrowserRouter,Routes,Route,Navigate,Outlet } from 'react-router-dom';
 import { Footer } from './page/Footer/Footer';
 import { NavBar } from './page/NavBar/NavBar';
 import { HomePage } from './page/HomePage/HomePage';
-import { Register } from './page/Register/Register';
+import Register from './page/Register/Register';
 import { NotFound } from './page/NotFound/NotFound';
 import Login from './page/Login/Login';
+import Store from './page/Store/Store';
 import Profile from './page/Profile/Profile';
 const UserRoute = ({
   redirectPath = '/login',
@@ -25,7 +26,7 @@ const AdminRoute = ({
   redirectPath = '/home',
   children,
 }) => {
-  if (localStorage.getItem("user").role!="ROLE_ADMIN") {
+  if (localStorage.getItem("user").role!=="ROLE_ADMIN") {
     alert("Accessible by admin only")
     return <Navigate to={redirectPath} replace />;
   }
@@ -44,10 +45,13 @@ const Application = () => {
       <Route path="home" element={<HomePage />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
-      
+      <Route path="store" element={<Store />} />
+
+      <Route path="profile" element={<Profile />} />
+
       <Route element={<UserRoute/>}>
         {/* USER ROUTES IN HERE */}
-        <Route path="profile" element={<Profile />} />
+        
 
         <Route element={<AdminRoute/>}>
         {/* ADMIN ROUTES IN HERE*/}

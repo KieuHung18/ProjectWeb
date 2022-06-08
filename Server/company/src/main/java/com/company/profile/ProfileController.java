@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.company.datasource.CompanyUser;
 import com.company.register.JsonResponse;
 
 @Controller
@@ -19,8 +20,8 @@ public class ProfileController {
 		return res;
 		
 	}
-	public User getUser(String userID) {
-		User res= new User();
+	public CompanyUser getUser(String userID) {
+		CompanyUser res= new CompanyUser();
 		return res;
 	}
 }

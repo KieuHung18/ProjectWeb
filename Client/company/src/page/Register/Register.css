@@ -4,7 +4,7 @@
 }
 .register-form-container{
     font-size: 14px;
-    color: wheat;
+    color: #b8b6b4;
     padding: 7%;
     margin-top: 7%;
     width: 867px;
@@ -28,9 +28,9 @@
     margin: 20px;
 }
 .register-button{
-    padding: 3px 50px;
+    width: 150px;
     font-size: 15px;
-    line-height: 30px;
+    height: 40px;
     border-radius: 2px;
     display: block;
     color: #c3e1f8;
@@ -40,6 +40,22 @@
     background-size: 330% 100%;
 
 }
+.register-input{
+    background: #32353C;
+    border-radius: 3px;
+    color: #E9E9E9;
+    padding: 8px 6px;
+    box-shadow: none;
+    width: 100%;
+    border: 1px solid #26282D;
+    outline: none;
+}
+.register-input:focus{
+    border: 1px solid #26282D;
+    color: #E9E9E9;
+    background: #32353C;
+    box-shadow: none;
+}
 button.register-button.btn.btn-primary:active{
     box-shadow: none;
 }
@@ -47,4 +63,21 @@ button.register-button.btn.btn-primary:active{
 .register-button:hover{
     background: linear-gradient( to right, #47bfff 5%, #1a44c2 120%);
     box-shadow: 2px 2px 28px rgb(0 0 0 / 20%);
+}
+.list-country{
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 70px;
+}
+.country-btn{width: fit-content;
+min-width: 100%;}
+.menu-country{
+    width: fit-content;
+}
+.country-filter{
+    width: 70%;
+    margin: auto;
+    border: none;
+    border-radius: 0;
 }

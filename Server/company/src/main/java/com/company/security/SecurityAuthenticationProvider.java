@@ -1,15 +1,17 @@
 package com.company.security;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
+
+import com.company.datasource.CompanyUserJDBC;
 
 
 @Component
@@ -20,12 +22,13 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider
 		{
 			String email = authentication.getName();
 			String password = authentication.getCredentials().toString();
-			
-			if (authenticationdUser(email, password))
+			ApplicationContext context = new ClassPathXmlApplicationContext("data-source-config.xml");
+		    CompanyUserJDBC JDBC= (CompanyUserJDBC)context.getBean("companyUserJDBC");
+		    boolean authenticate=JDBC.loginValidation(email, password);
+		    ((ConfigurableApplicationContext)context).close();
+			if (authenticate)
 			{
-				List<GrantedAuthority> authoritys = new ArrayList<>();
-				grantedAuths(email, authoritys);
-				Authentication auth = new UsernamePasswordAuthenticationToken(email, password, authoritys);
+				Authentication auth = new UsernamePasswordAuthenticationToken(email, password);
 				return auth;
 			}
 			else
@@ -33,44 +36,6 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider
 				throw new AuthenticationCredentialsNotFoundException("Invalid Credentials!");
 			}
 		}
-		private void grantedAuths(String email,List<GrantedAuthority> authoritys) {
-			authoritys.add(new GrantedAuthority() {
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 1L;
-
-				@Override
-				public String getAuthority() {
-					// TODO Auto-generated method stub
-					return "ROLE_USER";
-				}
-			});
-			
-			if(email.equals("adminhung@gmail.com")) {
-				authoritys.add(new GrantedAuthority() {
-					/**
-					 * 
-					 */
-					private static final long serialVersionUID = 1L;
-
-					@Override
-					public String getAuthority() {
-						// TODO Auto-generated method stub
-						return "ROLE_ADMIN";
-					}
-				});
-			}
-		}
-		private boolean authenticationdUser(String email, String password)
-		{
-				if("userhung@gmail.com".equals(email) && "123456".equals(password))
-					return true;
-				if("adminhung@gmail.com".equals(email) && "123456".equals(password))
-					return true;
-				return false;
-		}
-
 		@Override
 		public boolean supports(Class<?> authentication)
 		{

@@ -3,8 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './HomePage.css';
 import{Card,CardGroup,Row,Col} from "react-bootstrap"
 import jquery from 'jquery';
+
 function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
+    
+    var reveals = jquery(".reveal");
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
@@ -15,6 +17,7 @@ function reveal() {
         reveals[i].classList.remove("active");
       }
     }
+    
   }
   window.addEventListener("scroll", reveal);
 

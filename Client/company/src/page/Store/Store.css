@@ -1,0 +1,11 @@
+.store-container{
+    padding: 100px ;
+    background-color: #15171e;
+}
+.store-nav-link{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.store-nav{
+    background-color: #23252b;
+}

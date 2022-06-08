@@ -16,7 +16,6 @@ export class NavBar extends React.Component{
                 crossDomain: true
             }
         );
-        localStorage.clear();
         this.setState({update: this.state.update?false:true})
     }
     

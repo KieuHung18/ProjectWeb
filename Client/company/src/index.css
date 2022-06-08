@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.field-alert{
+  color: red;
+
+}
+.loading-button{
+  background-color: #212529;
+  border: none;
+  border-radius: 2px;
+}

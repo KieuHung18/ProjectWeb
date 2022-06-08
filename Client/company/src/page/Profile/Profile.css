@@ -1,6 +1,12 @@
 .profile-container{
     padding: 100px;
-    background-color: blue;
+    background: url("/public/assets/images/arts/profile-background.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #031135;
+    min-height: 100vh;
 }
 .profile-title{
     text-transform: uppercase;
@@ -9,21 +15,41 @@
     font-weight: 700;
 }
 .profile-card.card {
-    background: transparent;
+    margin-top: 20px;
+    padding: 0;
+    background-color: rgba(9,85,135,.2);
+    
 }
 .profile-card-header{
     text-transform: uppercase;
     color: white;
-    background: blue;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    height: 100%;
+    border-top: 1px solid hsla(0,0%,100%,.1);
+    padding: 15px 20px;
+    background-color: rgba(9,85,135,.1);
+    margin-bottom: 0;
 }
 .profile-card-header.card-header {
     border-radius: 0;
 }
 .profile-card-body{
     color: white;
-    background: blue;
-    
+    padding: 20px;
 }
 .profile-card-body.card-body{
     border-radius: 0%;
+}
+.profile-card-button{
+    color: #00aeff;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    float: right;
+    
+}
+.profile-card-button:hover{
+    color: white;
 }
