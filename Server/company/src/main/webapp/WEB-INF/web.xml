@@ -22,7 +22,7 @@ version="3.0">
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:/security-config.xml
+			classpath:/dispatcher-servlet.xml
 			
 		</param-value>
 	</context-param>

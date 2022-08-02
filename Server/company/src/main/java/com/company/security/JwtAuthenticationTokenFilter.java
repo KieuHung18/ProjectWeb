@@ -10,9 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,26 +19,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
-import com.company.datasource.CompanyUser;
-import com.company.datasource.CompanyUserJDBC;
+import com.company.entity.CompanyUser;
+import com.company.user.JwtService;
+import com.company.user.UserService;
 
 public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthenticationFilter{
-	private final static String TOKEN_HEADER = "authorization";
+	
+	public final static String TOKEN_HEADER = "authorization";
+	@Autowired
 	private JwtService jwtService;
- @Override
+	@Autowired
+	private UserService service;
+	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-	 jwtService = new JwtService();
+//	 jwtService = new JwtService();
 		// TODO Auto-generated method stub
 	 HttpServletRequest httpRequest = (HttpServletRequest) req;
 	    String authToken = httpRequest.getHeader(TOKEN_HEADER);
-	    if (jwtService.validateTokenLogin(authToken)) {System.out.println("token allow");
-	      String userid = jwtService.parseJwt(authToken).getBody().get("uid").toString();
-	      ApplicationContext context = new ClassPathXmlApplicationContext("data-source-config.xml");
-		  CompanyUserJDBC JDBC= (CompanyUserJDBC)context.getBean("companyUserJDBC");
-	      CompanyUser user = JDBC.get(userid);
-	      ((ConfigurableApplicationContext)context).close();
-	      if (user != null) {System.out.println("user allow");
+	    if (jwtService.validateTokenLogin(authToken)) {
+//	    	System.out.println("token allow");
+	      String userid = jwtService.parseJwt(authToken).getBody().getSubject();
+	      CompanyUser user = service.getUser(Integer.parseInt(userid));
+	      if (user != null) {
+//	    	  System.out.println("user allow");
 	        boolean enabled = true;
 	        boolean accountNonExpired = true;
 	        boolean credentialsNonExpired = true;

@@ -6,7 +6,7 @@ export class Footer extends React.Component{
     render(){
         return (
         <Card className="card">
-        <Card.Img src='assets/images/arts/footer.jpg'
+        <Card.Img src='/assets/images/arts/footer.jpg'
                 className="card-image"
                 alt="Card image" />
             <Card.ImgOverlay>

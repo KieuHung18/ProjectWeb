@@ -6,6 +6,7 @@ import $ from 'jquery'
 import { useState } from 'react';
 import country from './country.json';
 import { useNavigate } from 'react-router-dom';
+import { textValiDate,floatValidate, noSpaceTextValidate} from '../../validate';
 var valid;
 export default  function Register (){
     const [email="",setEmail]=useState();
@@ -31,8 +32,7 @@ export default  function Register (){
         
     }
     function validate(event) {
-        let allow=/^[a-zA-Z0-9@.]+$/;
-        if(event.target.value.match(allow))
+        if(textValiDate(event.target.value))
         {
             if(event.target.id=="id-password"){
                 setPassword("")
@@ -58,29 +58,16 @@ export default  function Register (){
     
     function handleSubmmit(event){
         event.preventDefault();
+        
         if(confirm()&&valid){
-            // let data={email:$("#id-email").val(),
-            //     name:$("#id-name").val(),
-            //     password:$("#id-password").val(),
-            //     dateOfBirth:$("#id-DOB").val(),
-            //     gender: $('input[name="register-gender"]:checked').val(),
-            //     country:currentCountry,
-            // };
-            // console.log(data.email)
-            // console.log(data.name)
-            // console.log(data.password)
-            // console.log(data.dateOfBirth)
-            // console.log(data.gender)
-            // console.log(data.country)
             setLoading(true)
-
             $.ajax(
                 {
                 data: {email:$("#id-email").val(),
                 name:$("#id-name").val(),
                 password:$("#id-password").val(),
-                DOB:$("#id-DOB").val(),
-                gender: null,
+                dob:$("#id-DOB").val(),
+                male: $("#id-male").is(":checked"),
                 country:currentCountry},
                 method: 'POST',
                 url: 'http://localhost:8080/company/register',
@@ -163,18 +150,18 @@ export default  function Register (){
 
                                     <Form.Group className="name" controlId="id-name">
                                         <Form.Label>Profile Name</Form.Label>
-                                        <Form.Control onKeyUp={validate} maxLength={20} className='register-input' />
+                                        <Form.Control onKeyUp={validate} required maxLength={20} className='register-input' />
                                     </Form.Group>
                                     {name!==""&&<div className='field-alert'>{name}</div>}
 
                                     <Form.Group className="password" controlId="id-password">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control onKeyUp={validate} minLength={10} maxLength={20} className='register-input' type="password" />
+                                        <Form.Control onKeyUp={validate} required minLength={10} maxLength={20} className='register-input' type="password" />
                                     </Form.Group>
 
                                     <Form.Group className="confirm-password" controlId="id-confirm-password">
                                         <Form.Label>Confirm Password</Form.Label>
-                                        <Form.Control onKeyUp={validate} className='register-input' type="password"/>
+                                        <Form.Control onKeyUp={validate} required className='register-input' type="password"/>
                                     </Form.Group>
                                     {password!==""&&<div className='field-alert'>{password}</div>}
                                     </Col>
@@ -182,24 +169,11 @@ export default  function Register (){
                                     <Col className='input-field'>
                                     <Form.Group className="date-of-birth" controlId="id-DOB">
                                         <Form.Label>Date Of Birth</Form.Label>
-                                        <Form.Control  className='register-input' type="date"/>
+                                        <Form.Control defaultValue={(new Date(46861000)).toISOString().substring(0,10)}  className='register-input' type="date"/>
                                     </Form.Group>    
 
-                                    <Form.Group className="gender" >
-                                        <Form.Label>Gender</Form.Label>
-                                        <br/>
-                                        <Form.Check value={true}
-                                            inline
-                                            label="Male"
-                                            name="register-gender"
-                                            type='radio'
-                                        />
-                                        <Form.Check value={false}
-                                            inline
-                                            label="Female"
-                                            name="register-gender"
-                                            type='radio'
-                                        />
+                                    <Form.Group  controlId="id-male" className="male" >
+                                    <Form.Check  type="checkbox" label="Male" />
                                     </Form.Group>
 
                                     <Form.Group className="country" controlId="id-country">
@@ -217,9 +191,9 @@ export default  function Register (){
                                     </Col>
                                 </Row>
                                 
-                                <Form.Group className="agree" >
+                                {/* <Form.Group className="agree" >
                                     <Form.Check required type="checkbox" label="I agree to the terms of the Company Subscriber Agreement and the Company Privacy Policy." />
-                                </Form.Group>
+                                </Form.Group> */}
                                 
                                 {loading?
                                 <button style={{width:"150px",height:"40px"}} className='loading-button' disabled >

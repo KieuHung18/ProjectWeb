@@ -20,7 +20,8 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint{
 		    response.getWriter().write("ok");
 		    System.out.println(HttpServletResponse.SC_OK+": "+"ok");
 		}
-		else {System.out.println(request.getMethod());
+		else {
+			System.out.println(request.getMethod());
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 		    response.getWriter().write("Unauthorized");
 		    System.out.println(HttpServletResponse.SC_UNAUTHORIZED+": "+"Unauthorized");

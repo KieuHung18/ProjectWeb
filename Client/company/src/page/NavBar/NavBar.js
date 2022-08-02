@@ -6,22 +6,40 @@ import './NavBar.css'
 import $ from 'jquery';
 export class NavBar extends React.Component{
     logoutHandler(){
-         $.ajax(
-            {   
-                method: 'GET',
-                url: 'http://localhost:8080/company/logout',
-                xhrFields: {
-                withCredentials: true
-                },
-                crossDomain: true
-            }
-        );
+        //  $.ajax(
+        //     {   headers: {
+        //         'authorization':localStorage.getItem("authorization"),
+        //         },
+        //         method: 'GET',
+        //         url: 'http://localhost:8080/company/logout',
+                
+        //     }
+        // );
         this.setState({update: this.state.update?false:true})
+        localStorage.removeItem("authorization");
+        window.location.reload(false);
     }
+
+    componentDidMount() {
+        var display=this;
+        $.ajax({
+          headers: {
+            'authorization':localStorage.getItem("authorization"),
+          },
+          type: "GET",
+          url: "http://localhost:8080/company/protectedadmin",
+          success: function(){
+            display.setState({admin: true})
+            },
+           error: function(){
+            display.setState({admin: false})
+           }
+        });
+      }
     
     constructor(props){
         super(props);
-        this.state={update:true}
+        this.state={update:true,admin:false}
         this.logoutHandler=this.logoutHandler.bind(this);
     }
     
@@ -33,6 +51,7 @@ export class NavBar extends React.Component{
                 <Link style={{ textDecoration: 'none' }} className="navbar-link link-main" to="/media">Media</Link>
                 <Link style={{ textDecoration: 'none' }} className="navbar-link link-main" to="/news">News</Link>
                 <Link style={{ textDecoration: 'none' }} className="navbar-link link-main" to="/esports">Esports</Link>
+                {this.state.admin&&<Link style={{ textDecoration: 'none' }} className="navbar-link link-main" to="/admin">Admin</Link>}
                 <NavDropdown className="navbar-link link-main game" title="Game" >
                     <NavDropdown.Item className="game-item navbar-link game-link" as={Link} to="/store">
                     Store
@@ -55,7 +74,7 @@ export class NavBar extends React.Component{
                     <Link style={{ textDecoration: 'none' }} className="navbar-link link-sub" to="/support">Support</Link>
                     </Row>
                     <Row>
-                    {localStorage.getItem("user")?
+                    {localStorage.getItem("authorization")?
                     <NavDropdown className="acount" title="acount" >
                         <NavDropdown.Item onClick={this.logoutHandler}
                             className="acount-item navbar-link game-link" as={Link} to="/home">
@@ -66,7 +85,6 @@ export class NavBar extends React.Component{
                             className="acount-item navbar-link game-link" as={Link} to="/profile">
                         Acount Setting
                         </NavDropdown.Item>
-                        
                     </NavDropdown>:
                     <NavDropdown className="acount" title="acount" >
                         <NavDropdown.Item
@@ -80,7 +98,6 @@ export class NavBar extends React.Component{
                         </NavDropdown.Item>
                     </NavDropdown>
                     }
-                    
                     </Row>
                     </Col>
                 </Nav>

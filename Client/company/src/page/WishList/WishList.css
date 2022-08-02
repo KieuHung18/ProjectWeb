@@ -1,0 +1,15 @@
+.wishlist-container{
+    padding: 100px ;
+   background-color: #15171e;
+   color: white;
+  min-height: 1080px
+}
+.my-wish-list{
+  width: 100%;
+  border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    padding: 25px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}

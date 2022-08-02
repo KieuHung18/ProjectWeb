@@ -28,6 +28,7 @@ export default function Login(){
                         reset();
                         localStorage.setItem("authorization",response.response)
                         navigate("/profile")
+                        window.location.reload(false);
                     }else{
                         reset();
                         setInvalid(true)
@@ -79,9 +80,7 @@ export default function Login(){
                 <Button className='login-submit-button' type="submit">
                     Log In
                 </Button>
-                
                 </>
-                
                 }
             </Form>
             <div >

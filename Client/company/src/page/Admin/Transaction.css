@@ -1,0 +1,93 @@
+
+.add-product-group{
+    margin: 15px;
+}
+.add-product-form{padding: 106px;text-align: left;}
+.add-product-btn{
+    margin: 20px;
+}
+.customer-list-container{
+    background-color: transparent;
+}
+.productlist-welcome{
+    padding-top: 50px;
+    font-weight: 300;
+    font-size: 50px;
+    padding-left: 60px;
+
+}
+.status-container.row {
+    width: 900px;
+    text-align: center;
+    padding: 20px 20px;
+    margin-left: 60px;
+    margin-bottom: 25px;
+}
+.status-main-container.row {
+    align-items: center;
+    width: 145px;
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+.status-items-container.col {
+    background-color: white;
+    padding: 5px;
+    box-shadow: 2px 2px hsl(0deg 0% 93%);
+    margin-left: 20px;
+}
+.status-icon-container{
+
+}
+.status-info-container{
+
+}
+.status-type-container{
+
+}
+.status-number-container{
+
+}
+/* tr.product-list-row>td:nth-child(4) {
+    color: red;
+    font-weight: 600;
+} */
+.red{
+    color: red;
+    font-weight: 600;
+}
+.filter {
+    max-width: 165px;
+    margin: auto;
+    border-radius: 2px;
+    border-color: #6c757d;
+}
+input#text-filter-column-city::placeholder   {
+    color: #6c757d;
+}
+input#text-filter-column-district::placeholder{
+    color: #6c757d;
+}
+input#text-filter-column-ward::placeholder{
+    color: #6c757d;
+}
+table.table.table-bordered>thead {
+    text-align: center;
+    vertical-align: middle;
+}
+.product-list-row:hover{
+    background-color: black;
+    color: white;
+}
+.react-bootstrap-table {
+    margin: 30px;
+    background-color: white;
+}
+table.table.table-bordered {
+    table-layout: auto;
+}
+table.table.table-bordered {
+    border-color: #6c757d;
+}
